@@ -1,0 +1,9 @@
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\neogocio.csproj.AssemblyReference.cache
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\neogocio.csproj.CoreCompileInputs.cache
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\bin\Debug\neogocio.dll
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\bin\Debug\neogocio.pdb
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\bin\Debug\dominio.dll
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\bin\Debug\dominio.pdb
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\neogocio.csproj.CopyComplete
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\neogocio.dll
+C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\neogocio.pdb
