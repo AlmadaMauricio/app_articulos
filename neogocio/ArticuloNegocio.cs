@@ -34,7 +34,15 @@ namespace negocio
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["ArticuloDescripcion"];
-                    aux.ImagenUrl = (string)lector["ImagenUrl"];
+
+
+                    if (!(lector["ImagenUrl"] is DBNull))
+                    {
+                        aux.ImagenUrl = (string)lector["ImagenUrl"];
+                    }
+
+
+
                     aux.Categoria = new Categoria();
                     aux.Categoria.Descripcion = (string)lector["CategoriaDescripcion"];
                     aux.Marca = new Marca();

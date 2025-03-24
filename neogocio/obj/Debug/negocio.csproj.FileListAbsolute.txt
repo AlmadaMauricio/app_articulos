@@ -7,3 +7,12 @@ C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\negocio.
 C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\negocio.csproj.CopyComplete
 C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\neogocio.dll
 C:\Users\Mauricio\Documents\MaxiPrograma\ProyectoApp\neogocio\obj\Debug\neogocio.pdb
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\bin\Debug\neogocio.dll
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\bin\Debug\neogocio.pdb
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\bin\Debug\dominio.dll
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\bin\Debug\dominio.pdb
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\obj\Debug\negocio.csproj.AssemblyReference.cache
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\obj\Debug\negocio.csproj.CoreCompileInputs.cache
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\obj\Debug\negocio.csproj.CopyComplete
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\obj\Debug\neogocio.dll
+C:\Users\Mauricio\Documents\GitHub_repos\app_articulos\neogocio\obj\Debug\neogocio.pdb

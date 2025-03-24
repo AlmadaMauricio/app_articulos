@@ -23,10 +23,19 @@ namespace AppCatalogo
         private void frmArticulo_Load(object sender, EventArgs e)
         {
             ArticuloNegocio articulo = new ArticuloNegocio();
-            listaArticulo = articulo.listar();
-            dgvArticulos.DataSource = listaArticulo;
-            dgvArticulos.Columns["ImagenUrl"].Visible = false;
-            cargarImagen(listaArticulo[0].ImagenUrl);
+            
+            try
+            {
+                listaArticulo = articulo.listar();
+                dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["ImagenUrl"].Visible = false;
+                cargarImagen(listaArticulo[0].ImagenUrl);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
