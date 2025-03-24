@@ -22,7 +22,7 @@ namespace negocio
             {
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "SELECT Codigo, Nombre, A.Descripcion AS ArticuloDescripcion, ImagenUrl, C.Id AS CategoriaId, C.Descripcion AS CategoriaDescripcion, M.Id AS MarcaId, M.Descripcion AS MarcaDescripcion, Precio FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN MARCAS M ON A.IdMarca = M.Id";
+                comando.CommandText = "SELECT Codigo, Nombre, A.Descripcion AS ArticuloDescripcion, ImagenUrl, C.Id AS CategoriaId, C.Descripcion AS CategoriaDescripcion, M.Id AS MarcaId, M.Descripcion AS MarcaDescripcion, Precio, A.Id FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN MARCAS M ON A.IdMarca = M.Id";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -31,6 +31,7 @@ namespace negocio
                 while (lector.Read())
                 {
                     Articulo aux = new Articulo();
+                    aux.Id = (int)lector["Id"];
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["ArticuloDescripcion"];
@@ -43,10 +44,12 @@ namespace negocio
 
 
 
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)lector["CategoriaDescripcion"];
                     aux.Marca = new Marca();
+                    aux.Marca.Id = (int)lector["MarcaId"];
                     aux.Marca.Descripcion = (string)lector["MarcaDescripcion"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Id = (int)lector["CategoriaId"];
+                    aux.Categoria.Descripcion = (string)lector["CategoriaDescripcion"];
                     aux.Precio = (float)Convert.ToDecimal(lector["Precio"]);
 
                     lista.Add(aux);
@@ -90,9 +93,33 @@ namespace negocio
             }
         }
 
-        public void modificar(Articulo modificar)
+        public void modificar(Articulo articulo)
         {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, ImagenUrl = @ImagenUrl, Precio = @Precio from ARTICULOS Where Id = @Id");
+                datos.setearParametro("@Codigo", articulo.Codigo);
+                datos.setearParametro("@Nombre", articulo.Nombre);
+                datos.setearParametro("@Descripcion", articulo.Descripcion);
+                datos.setearParametro("@IdMarca", articulo.Marca.Id);
+                datos.setearParametro("@IdCategoria", articulo.Categoria.Id);
+                datos.setearParametro("@ImagenUrl", articulo.ImagenUrl);
+                datos.setearParametro("@Precio", articulo.Precio);
+                datos.setearParametro("@Id", articulo.Id);
 
+                datos.ejecutarAccion();
+            }
+
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
     }
 }

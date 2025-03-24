@@ -40,6 +40,7 @@ namespace AppCatalogo
                 listaArticulo = articulo.listar();
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["ImagenUrl"].Visible = false;
+                dgvArticulos.Columns["Id"].Visible = false;
                 cargarImagen(listaArticulo[0].ImagenUrl);
             }
             catch (Exception ex)
@@ -67,6 +68,15 @@ namespace AppCatalogo
         {
             frmAgregar alta = new frmAgregar(); 
             alta.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAgregar modificar = new frmAgregar(seleccionado);
+            modificar.ShowDialog();
             cargar();
         }
     }

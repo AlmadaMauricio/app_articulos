@@ -14,9 +14,17 @@ namespace AppCatalogo
 {
     public partial class frmAgregar : Form
     {
+        private Articulo articulo = null;
         public frmAgregar()
         {
             InitializeComponent();
+        }
+
+        public frmAgregar(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Articulo";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -26,21 +34,33 @@ namespace AppCatalogo
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo art = new Articulo();
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
-                art.Codigo = txtBoxCodigo.Text;
-                art.Nombre = txtBoxNombre.Text;
-                art.Descripcion = txtBoxDesc.Text;
-                art.Marca = (Marca)cbxMarca.SelectedItem;
-                art.Categoria = (Categoria)cbxCategoria.SelectedItem;
-                art.ImagenUrl = txtBoxImagen.Text;
-                art.Precio = float.Parse(txtBoxPrecio.Text);
+                if(articulo == null)
+                {
+                    articulo = new Articulo();
+                }
+                articulo.Codigo = txtBoxCodigo.Text;
+                articulo.Nombre = txtBoxNombre.Text;
+                articulo.Descripcion = txtBoxDesc.Text;
+                articulo.Marca = (Marca)cbxMarca.SelectedItem;
+                articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
+                articulo.ImagenUrl = txtBoxImagen.Text;
+                articulo.Precio = float.Parse(txtBoxPrecio.Text);
 
-                negocio.agregar(art);
-                MessageBox.Show("Agregado exitosamente");
+                if(articulo.Id != 0)
+                {
+                    negocio.modificar(articulo);
+                    MessageBox.Show("Modificado exitosamente");
+                }
+                else
+                {
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Agregado exitosamente");
+                }
+
                 Close();
             }
             catch (Exception ex)
@@ -57,7 +77,24 @@ namespace AppCatalogo
             try
             {
                 cbxMarca.DataSource = marcaNegocio.listar();
+                cbxMarca.ValueMember = "Id";
+                cbxMarca.DisplayMember = "Descripcion";
+
                 cbxCategoria.DataSource = categoriaNegocio.listar();
+                cbxCategoria.ValueMember = "Id";
+                cbxCategoria.DisplayMember = "Descripcion";
+
+                if (articulo != null)
+                {
+                    txtBoxCodigo.Text = articulo.Codigo;
+                    txtBoxNombre.Text = articulo.Nombre;
+                    txtBoxDesc.Text = articulo.Descripcion;
+                    txtBoxImagen.Text = articulo.ImagenUrl;
+                    cargarImagen(articulo.ImagenUrl);
+                    cbxMarca.SelectedValue = articulo.Marca.Id;
+                    cbxCategoria.SelectedValue = articulo.Categoria.Id;
+                    txtBoxPrecio.Text = articulo.Precio.ToString();
+                }
             }
             catch (Exception ex)
             {
