@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
 using negocio;
-using neogocio;
 
 namespace AppCatalogo
 {
@@ -37,6 +36,7 @@ namespace AppCatalogo
                 art.Descripcion = txtBoxDesc.Text;
                 art.Marca = (Marca)cbxMarca.SelectedItem;
                 art.Categoria = (Categoria)cbxCategoria.SelectedItem;
+                art.ImagenUrl = txtBoxImagen.Text;
                 art.Precio = float.Parse(txtBoxPrecio.Text);
 
                 negocio.agregar(art);
@@ -64,6 +64,25 @@ namespace AppCatalogo
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void txtBoxImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtBoxImagen.Text);
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pboxArticulo.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+
+                pboxArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+
         }
     }
 }

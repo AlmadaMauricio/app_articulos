@@ -44,12 +44,14 @@
             this.lblImagen = new System.Windows.Forms.Label();
             this.txtBoxPrecio = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
+            this.pboxArticulo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(77, 53);
+            this.lblCodigo.Location = new System.Drawing.Point(64, 55);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigo.TabIndex = 1;
@@ -58,7 +60,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(73, 95);
+            this.lblNombre.Location = new System.Drawing.Point(60, 97);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 2;
@@ -67,7 +69,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(56, 134);
+            this.lblDescripcion.Location = new System.Drawing.Point(43, 136);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcion.TabIndex = 3;
@@ -75,21 +77,21 @@
             // 
             // txtBoxDesc
             // 
-            this.txtBoxDesc.Location = new System.Drawing.Point(128, 131);
+            this.txtBoxDesc.Location = new System.Drawing.Point(115, 133);
             this.txtBoxDesc.Name = "txtBoxDesc";
             this.txtBoxDesc.Size = new System.Drawing.Size(122, 20);
             this.txtBoxDesc.TabIndex = 2;
             // 
             // txtBoxNombre
             // 
-            this.txtBoxNombre.Location = new System.Drawing.Point(128, 92);
+            this.txtBoxNombre.Location = new System.Drawing.Point(115, 94);
             this.txtBoxNombre.Name = "txtBoxNombre";
             this.txtBoxNombre.Size = new System.Drawing.Size(122, 20);
             this.txtBoxNombre.TabIndex = 1;
             // 
             // txtBoxCodigo
             // 
-            this.txtBoxCodigo.Location = new System.Drawing.Point(128, 50);
+            this.txtBoxCodigo.Location = new System.Drawing.Point(115, 52);
             this.txtBoxCodigo.Name = "txtBoxCodigo";
             this.txtBoxCodigo.Size = new System.Drawing.Size(122, 20);
             this.txtBoxCodigo.TabIndex = 0;
@@ -118,7 +120,7 @@
             // 
             this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMarca.FormattingEnabled = true;
-            this.cbxMarca.Location = new System.Drawing.Point(128, 168);
+            this.cbxMarca.Location = new System.Drawing.Point(115, 170);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(121, 21);
             this.cbxMarca.TabIndex = 3;
@@ -127,7 +129,7 @@
             // 
             this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(128, 205);
+            this.cbxCategoria.Location = new System.Drawing.Point(115, 207);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 4;
@@ -135,7 +137,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(80, 171);
+            this.lblMarca.Location = new System.Drawing.Point(67, 173);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(40, 13);
             this.lblMarca.TabIndex = 13;
@@ -144,7 +146,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(65, 208);
+            this.lblCategoria.Location = new System.Drawing.Point(52, 210);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(55, 13);
             this.lblCategoria.TabIndex = 14;
@@ -152,15 +154,16 @@
             // 
             // txtBoxImagen
             // 
-            this.txtBoxImagen.Location = new System.Drawing.Point(128, 243);
+            this.txtBoxImagen.Location = new System.Drawing.Point(115, 245);
             this.txtBoxImagen.Name = "txtBoxImagen";
             this.txtBoxImagen.Size = new System.Drawing.Size(122, 20);
             this.txtBoxImagen.TabIndex = 5;
+            this.txtBoxImagen.Leave += new System.EventHandler(this.txtBoxImagen_Leave);
             // 
             // lblImagen
             // 
             this.lblImagen.AutoSize = true;
-            this.lblImagen.Location = new System.Drawing.Point(62, 246);
+            this.lblImagen.Location = new System.Drawing.Point(49, 248);
             this.lblImagen.Name = "lblImagen";
             this.lblImagen.Size = new System.Drawing.Size(58, 13);
             this.lblImagen.TabIndex = 15;
@@ -168,7 +171,7 @@
             // 
             // txtBoxPrecio
             // 
-            this.txtBoxPrecio.Location = new System.Drawing.Point(127, 278);
+            this.txtBoxPrecio.Location = new System.Drawing.Point(114, 280);
             this.txtBoxPrecio.Name = "txtBoxPrecio";
             this.txtBoxPrecio.Size = new System.Drawing.Size(123, 20);
             this.txtBoxPrecio.TabIndex = 6;
@@ -176,17 +179,27 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(80, 281);
+            this.lblPrecio.Location = new System.Drawing.Point(67, 283);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(40, 13);
             this.lblPrecio.TabIndex = 17;
             this.lblPrecio.Text = "Precio:";
             // 
+            // pboxArticulo
+            // 
+            this.pboxArticulo.Location = new System.Drawing.Point(287, 50);
+            this.pboxArticulo.Name = "pboxArticulo";
+            this.pboxArticulo.Size = new System.Drawing.Size(309, 295);
+            this.pboxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxArticulo.TabIndex = 18;
+            this.pboxArticulo.TabStop = false;
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 391);
+            this.ClientSize = new System.Drawing.Size(649, 391);
+            this.Controls.Add(this.pboxArticulo);
             this.Controls.Add(this.txtBoxPrecio);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.txtBoxImagen);
@@ -207,6 +220,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Articulo";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pboxArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +243,6 @@
         private System.Windows.Forms.Label lblImagen;
         private System.Windows.Forms.TextBox txtBoxPrecio;
         private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.PictureBox pboxArticulo;
     }
 }

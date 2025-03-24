@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using dominio;
 
-namespace neogocio
+namespace negocio
 {
     public class MarcaNegocio
     {
