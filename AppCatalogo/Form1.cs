@@ -22,8 +22,19 @@ namespace AppCatalogo
 
         private void frmArticulo_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.ImagenUrl);
+        }
+
+        private void cargar()
+        {
             ArticuloNegocio articulo = new ArticuloNegocio();
-            
+
             try
             {
                 listaArticulo = articulo.listar();
@@ -36,12 +47,6 @@ namespace AppCatalogo
 
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
-        {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.ImagenUrl);
         }
 
         private void cargarImagen(string imagen)
@@ -62,6 +67,7 @@ namespace AppCatalogo
         {
             frmAgregar alta = new frmAgregar(); 
             alta.ShowDialog();
+            cargar();
         }
     }
 }
