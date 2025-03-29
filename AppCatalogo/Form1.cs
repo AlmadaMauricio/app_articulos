@@ -111,10 +111,15 @@ namespace AppCatalogo
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
             List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
 
-            if(filtro != "")
+            if (filtro.Length >= 3)
             {
                 listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
             }
