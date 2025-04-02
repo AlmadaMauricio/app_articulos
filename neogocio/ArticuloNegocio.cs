@@ -146,19 +146,19 @@ namespace negocio
             try
             {
                 string consulta = "SELECT Codigo, Nombre, A.Descripcion AS ArticuloDescripcion, ImagenUrl, C.Id AS CategoriaId, C.Descripcion AS CategoriaDescripcion, M.Id AS MarcaId, M.Descripcion AS MarcaDescripcion, Precio, A.Id FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN MARCAS M ON A.IdMarca = M.Id And ";
-                if(campo == "Número")
+                if(campo == "Código")
                 {
                     switch (criterio)
                     {
                         case "Mayor a":
-                            consulta += "Número > " + filtro;
+                            consulta += "Código > " + filtro;
                             break;
 
                         case "Menor a":
-                            consulta += "Número < " + filtro;
+                            consulta += "Código < " + filtro;
                             break;
                         default:
-                            consulta += "Número = " + filtro;
+                            consulta += "Código = " + filtro;
                             break;
                     }
                 }
@@ -175,6 +175,21 @@ namespace negocio
                             break;
                         default:
                             consulta += "Nombre like '%" + filtro + "%'";
+                            break;
+                    }
+                }else if (campo == "Precio")
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "Precio > " + filtro;
+                            break;
+
+                        case "Menor a":
+                            consulta += "Precio < " + filtro;
+                            break;
+                        default:
+                            consulta += "Precio = " + filtro;
                             break;
                     }
                 }
