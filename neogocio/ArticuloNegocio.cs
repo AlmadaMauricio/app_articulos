@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using dominio;
 using negocio;
+using System.Reflection;
 
 namespace negocio
 {
@@ -137,5 +138,99 @@ namespace negocio
                 throw ex;
             }
         }
+
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "SELECT Codigo, Nombre, A.Descripcion AS ArticuloDescripcion, ImagenUrl, C.Id AS CategoriaId, C.Descripcion AS CategoriaDescripcion, M.Id AS MarcaId, M.Descripcion AS MarcaDescripcion, Precio, A.Id FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN MARCAS M ON A.IdMarca = M.Id And ";
+                if(campo == "Número")
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "Número > " + filtro;
+                            break;
+
+                        case "Menor a":
+                            consulta += "Número < " + filtro;
+                            break;
+                        default:
+                            consulta += "Número = " + filtro;
+                            break;
+                    }
+                }
+                else if(campo == "Nombre")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Nombre like '" + filtro + "%'";
+                            break;
+
+                        case "Termina con":
+                            consulta += "Nombre like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Nombre like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "A.Descripcion like '" + filtro + "%'";
+                            break;
+
+                        case "Termina con":
+                            consulta += "A.Descripcion like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "A.Descripcion like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["ArticuloDescripcion"];
+
+
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    {
+                        aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    }
+
+
+
+                    aux.Marca = new Marca();
+                    aux.Marca.Id = (int)datos.Lector["MarcaId"];
+                    aux.Marca.Descripcion = (string)datos.Lector["MarcaDescripcion"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Id = (int)datos.Lector["CategoriaId"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["CategoriaDescripcion"];
+                    aux.Precio = (float)Convert.ToDecimal(datos.Lector["Precio"]);
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        } 
     }
 }
