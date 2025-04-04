@@ -155,13 +155,13 @@ namespace AppCatalogo
             string opcion = cboCampo.SelectedItem.ToString();
             cboCriterio.Items.Clear();
 
-            if (opcion == "Número" || opcion == "Precio")
+            if (opcion == "Precio") // Solo Precio es numérico
             {
                 cboCriterio.Items.Add("Mayor a");
                 cboCriterio.Items.Add("Menor a");
                 cboCriterio.Items.Add("Igual a");
             }
-            else
+            else // Código, Nombre, Descripción son textos
             {
                 cboCriterio.Items.Add("Comienza con");
                 cboCriterio.Items.Add("Termina con");

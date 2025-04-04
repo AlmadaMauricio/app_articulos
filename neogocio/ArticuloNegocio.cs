@@ -145,68 +145,75 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "SELECT Codigo, Nombre, A.Descripcion AS ArticuloDescripcion, ImagenUrl, C.Id AS CategoriaId, C.Descripcion AS CategoriaDescripcion, M.Id AS MarcaId, M.Descripcion AS MarcaDescripcion, Precio, A.Id FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN MARCAS M ON A.IdMarca = M.Id And ";
-                if(campo == "Código")
-                {
-                    switch (criterio)
-                    {
-                        case "Mayor a":
-                            consulta += "Código > " + filtro;
-                            break;
+                /*string consulta = "SELECT Codigo, Nombre, A.Descripcion AS ArticuloDescripcion, ImagenUrl, C.Id AS CategoriaId, C.Descripcion AS CategoriaDescripcion, M.Id AS MarcaId, M.Descripcion AS MarcaDescripcion, Precio, A.Id FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN MARCAS M ON A.IdMarca = M.Id And ";*/
+                string consulta = "SELECT A.Codigo, A.Nombre, A.Descripcion AS ArticuloDescripcion, ImagenUrl, C.Id AS CategoriaId, C.Descripcion AS CategoriaDescripcion, M.Id AS MarcaId, M.Descripcion AS MarcaDescripcion, Precio, A.Id FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN MARCAS M ON A.IdMarca = M.Id";
 
-                        case "Menor a":
-                            consulta += "Código < " + filtro;
-                            break;
-                        default:
-                            consulta += "Código = " + filtro;
-                            break;
+                if (!string.IsNullOrWhiteSpace(filtro))
+                {
+                    if (campo == "Codigo")
+                    {
+                        switch (criterio)
+                        {
+                            case "Comienza con":
+                                consulta += " Where A.Codigo like '" + filtro + "%'";
+                                break;
+
+                            case "Termina con":
+                                consulta += " Where A.Codigo like '%" + filtro + "'";
+                                break;
+
+                            default:
+                                consulta += " Where A.Codigo like '%" + filtro + "%'";
+                                break;
+                        }
                     }
-                }
-                else if(campo == "Nombre")
-                {
-                    switch (criterio)
+                    else if (campo == "Nombre")
                     {
-                        case "Comienza con":
-                            consulta += "Nombre like '" + filtro + "%'";
-                            break;
+                        switch (criterio)
+                        {
+                            case "Comienza con":
+                                consulta += " Where A.Nombre like '" + filtro + "%'";
+                                break;
 
-                        case "Termina con":
-                            consulta += "Nombre like '%" + filtro + "'";
-                            break;
-                        default:
-                            consulta += "Nombre like '%" + filtro + "%'";
-                            break;
+                            case "Termina con":
+                                consulta += " Where A.Nombre like '%" + filtro + "'";
+                                break;
+                            default:
+                                consulta += " Where A.Nombre like '%" + filtro + "%'";
+                                break;
+                        }
                     }
-                }else if (campo == "Precio")
-                {
-                    switch (criterio)
+                    else if (campo == "Precio")
                     {
-                        case "Mayor a":
-                            consulta += "Precio > " + filtro;
-                            break;
+                        switch (criterio)
+                        {
+                            case "Mayor a":
+                                consulta += " Where A.Precio > " + filtro;
+                                break;
 
-                        case "Menor a":
-                            consulta += "Precio < " + filtro;
-                            break;
-                        default:
-                            consulta += "Precio = " + filtro;
-                            break;
+                            case "Menor a":
+                                consulta += " Where A.Precio < " + filtro;
+                                break;
+                            default:
+                                consulta += " Where A.Precio = " + filtro;
+                                break;
+                        }
                     }
-                }
-                else
-                {
-                    switch (criterio)
+                    else
                     {
-                        case "Comienza con":
-                            consulta += "A.Descripcion like '" + filtro + "%'";
-                            break;
+                        switch (criterio)
+                        {
+                            case "Comienza con":
+                                consulta += " Where A.Descripcion like '" + filtro + "%'";
+                                break;
 
-                        case "Termina con":
-                            consulta += "A.Descripcion like '%" + filtro + "'";
-                            break;
-                        default:
-                            consulta += "A.Descripcion like '%" + filtro + "%'";
-                            break;
+                            case "Termina con":
+                                consulta += " Where A.Descripcion like '%" + filtro + "'";
+                                break;
+                            default:
+                                consulta += " Where A.Descripcion like '%" + filtro + "%'";
+                                break;
+                        }
                     }
                 }
 
