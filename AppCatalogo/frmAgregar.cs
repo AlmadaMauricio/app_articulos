@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
 using negocio;
+using System.Configuration;
+using System.IO;
 
 namespace AppCatalogo
 {
     public partial class frmAgregar : Form
     {
         private Articulo articulo = null;
+        private OpenFileDialog archivo = null;
         public frmAgregar()
         {
             InitializeComponent();
@@ -59,6 +62,12 @@ namespace AppCatalogo
                 {
                     negocio.agregar(articulo);
                     MessageBox.Show("Agregado exitosamente");
+                }
+
+                //Guardo img si levanto localmente
+                if(archivo != null && !(txtBoxImagen.Text.ToUpper().Contains("HTTPS")))
+                {
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
                 }
 
                 Close();
@@ -118,6 +127,23 @@ namespace AppCatalogo
             {
 
                 pboxArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+
+        }
+
+        private void btnAgregarImg_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "Imágenes (*.jpg; *.jpeg; *.png; *.bmp; *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtBoxImagen.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+                
+                //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+            
+            
             }
 
         }

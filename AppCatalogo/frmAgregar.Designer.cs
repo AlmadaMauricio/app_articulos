@@ -45,13 +45,14 @@
             this.txtBoxPrecio = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.pboxArticulo = new System.Windows.Forms.PictureBox();
+            this.btnAgregarImg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(64, 55);
+            this.lblCodigo.Location = new System.Drawing.Point(65, 76);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigo.TabIndex = 1;
@@ -60,7 +61,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(60, 97);
+            this.lblNombre.Location = new System.Drawing.Point(61, 118);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 2;
@@ -69,7 +70,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(43, 136);
+            this.lblDescripcion.Location = new System.Drawing.Point(44, 157);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcion.TabIndex = 3;
@@ -77,28 +78,28 @@
             // 
             // txtBoxDesc
             // 
-            this.txtBoxDesc.Location = new System.Drawing.Point(115, 133);
+            this.txtBoxDesc.Location = new System.Drawing.Point(116, 154);
             this.txtBoxDesc.Name = "txtBoxDesc";
             this.txtBoxDesc.Size = new System.Drawing.Size(122, 20);
             this.txtBoxDesc.TabIndex = 2;
             // 
             // txtBoxNombre
             // 
-            this.txtBoxNombre.Location = new System.Drawing.Point(115, 94);
+            this.txtBoxNombre.Location = new System.Drawing.Point(116, 115);
             this.txtBoxNombre.Name = "txtBoxNombre";
             this.txtBoxNombre.Size = new System.Drawing.Size(122, 20);
             this.txtBoxNombre.TabIndex = 1;
             // 
             // txtBoxCodigo
             // 
-            this.txtBoxCodigo.Location = new System.Drawing.Point(115, 52);
+            this.txtBoxCodigo.Location = new System.Drawing.Point(116, 73);
             this.txtBoxCodigo.Name = "txtBoxCodigo";
             this.txtBoxCodigo.Size = new System.Drawing.Size(122, 20);
             this.txtBoxCodigo.TabIndex = 0;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(63, 322);
+            this.btnAceptar.Location = new System.Drawing.Point(64, 343);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 7;
@@ -108,7 +109,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(174, 322);
+            this.btnCancelar.Location = new System.Drawing.Point(175, 343);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 8;
@@ -120,7 +121,7 @@
             // 
             this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMarca.FormattingEnabled = true;
-            this.cbxMarca.Location = new System.Drawing.Point(115, 170);
+            this.cbxMarca.Location = new System.Drawing.Point(116, 191);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(121, 21);
             this.cbxMarca.TabIndex = 3;
@@ -129,7 +130,7 @@
             // 
             this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(115, 207);
+            this.cbxCategoria.Location = new System.Drawing.Point(116, 228);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 4;
@@ -137,7 +138,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(67, 173);
+            this.lblMarca.Location = new System.Drawing.Point(68, 194);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(40, 13);
             this.lblMarca.TabIndex = 13;
@@ -146,7 +147,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(52, 210);
+            this.lblCategoria.Location = new System.Drawing.Point(53, 231);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(55, 13);
             this.lblCategoria.TabIndex = 14;
@@ -154,7 +155,7 @@
             // 
             // txtBoxImagen
             // 
-            this.txtBoxImagen.Location = new System.Drawing.Point(115, 245);
+            this.txtBoxImagen.Location = new System.Drawing.Point(116, 266);
             this.txtBoxImagen.Name = "txtBoxImagen";
             this.txtBoxImagen.Size = new System.Drawing.Size(122, 20);
             this.txtBoxImagen.TabIndex = 5;
@@ -163,7 +164,7 @@
             // lblImagen
             // 
             this.lblImagen.AutoSize = true;
-            this.lblImagen.Location = new System.Drawing.Point(49, 248);
+            this.lblImagen.Location = new System.Drawing.Point(50, 269);
             this.lblImagen.Name = "lblImagen";
             this.lblImagen.Size = new System.Drawing.Size(58, 13);
             this.lblImagen.TabIndex = 15;
@@ -171,7 +172,7 @@
             // 
             // txtBoxPrecio
             // 
-            this.txtBoxPrecio.Location = new System.Drawing.Point(114, 280);
+            this.txtBoxPrecio.Location = new System.Drawing.Point(115, 301);
             this.txtBoxPrecio.Name = "txtBoxPrecio";
             this.txtBoxPrecio.Size = new System.Drawing.Size(123, 20);
             this.txtBoxPrecio.TabIndex = 6;
@@ -179,7 +180,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(67, 283);
+            this.lblPrecio.Location = new System.Drawing.Point(68, 304);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(40, 13);
             this.lblPrecio.TabIndex = 17;
@@ -187,18 +188,29 @@
             // 
             // pboxArticulo
             // 
-            this.pboxArticulo.Location = new System.Drawing.Point(287, 50);
+            this.pboxArticulo.Location = new System.Drawing.Point(366, 73);
             this.pboxArticulo.Name = "pboxArticulo";
-            this.pboxArticulo.Size = new System.Drawing.Size(309, 295);
+            this.pboxArticulo.Size = new System.Drawing.Size(313, 293);
             this.pboxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxArticulo.TabIndex = 18;
             this.pboxArticulo.TabStop = false;
+            // 
+            // btnAgregarImg
+            // 
+            this.btnAgregarImg.Location = new System.Drawing.Point(244, 266);
+            this.btnAgregarImg.Name = "btnAgregarImg";
+            this.btnAgregarImg.Size = new System.Drawing.Size(27, 20);
+            this.btnAgregarImg.TabIndex = 19;
+            this.btnAgregarImg.Text = "+";
+            this.btnAgregarImg.UseVisualStyleBackColor = true;
+            this.btnAgregarImg.Click += new System.EventHandler(this.btnAgregarImg_Click);
             // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 391);
+            this.ClientSize = new System.Drawing.Size(729, 442);
+            this.Controls.Add(this.btnAgregarImg);
             this.Controls.Add(this.pboxArticulo);
             this.Controls.Add(this.txtBoxPrecio);
             this.Controls.Add(this.lblPrecio);
@@ -244,5 +256,6 @@
         private System.Windows.Forms.TextBox txtBoxPrecio;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.PictureBox pboxArticulo;
+        private System.Windows.Forms.Button btnAgregarImg;
     }
 }

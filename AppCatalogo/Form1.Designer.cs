@@ -63,9 +63,9 @@ namespace AppCatalogo
             // 
             // pcbArticulos
             // 
-            this.pcbArticulos.Location = new System.Drawing.Point(726, 51);
+            this.pcbArticulos.Location = new System.Drawing.Point(707, 51);
             this.pcbArticulos.Name = "pcbArticulos";
-            this.pcbArticulos.Size = new System.Drawing.Size(291, 248);
+            this.pcbArticulos.Size = new System.Drawing.Size(277, 248);
             this.pcbArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbArticulos.TabIndex = 1;
             this.pcbArticulos.TabStop = false;
@@ -185,7 +185,7 @@ namespace AppCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 439);
+            this.ClientSize = new System.Drawing.Size(1029, 440);
             this.Controls.Add(this.txtFiltroAv);
             this.Controls.Add(this.lblFiltroAv);
             this.Controls.Add(this.cboCriterio);
