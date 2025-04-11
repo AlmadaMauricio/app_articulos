@@ -113,11 +113,77 @@ namespace AppCatalogo
             }
         }
 
+        private bool validarFiltro()
+        {
+            
+            if(cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione campo.");
+                return true;
+            }
+            if(cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione criterio");
+                return true;
+            }
+            if(cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (!(soloNumeros(txtFiltroAv.Text)))
+                {
+                    MessageBox.Show("Solo numeros para campo precio.");
+                    return true;
+                }
+            }
+            if(cboCampo.SelectedItem.ToString() == "Descripción")
+            {
+                if (!(soloLetras(txtFiltroAv.Text)))
+                {
+                    MessageBox.Show("Solo letras para campo Descripción.");
+                    return true;
+                }
+            }
+            if (cboCampo.SelectedItem.ToString() == "Nombre")
+            {
+                if (!(soloLetras(txtFiltroAv.Text)))
+                {
+                    MessageBox.Show("Solo letras para campo Nombre.");
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool soloLetras(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!char.IsLetter(caracter))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private void btnFiltro_Click(object sender, EventArgs e)
         {
             ArticuloNegocio articulo = new ArticuloNegocio();
             try
             {
+                if (validarFiltro() == true)
+                {
+                    return;
+                }
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltroAv.Text;
