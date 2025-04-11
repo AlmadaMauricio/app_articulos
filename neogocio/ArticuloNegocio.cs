@@ -150,7 +150,7 @@ namespace negocio
 
                 if (!string.IsNullOrWhiteSpace(filtro))
                 {
-                    if (campo == "Codigo")
+                    if (campo == "Código")
                     {
                         switch (criterio)
                         {

@@ -215,6 +215,7 @@ namespace AppCatalogo
             dgvArticulos.DataSource = listaFiltrada;
             ocultarColumnas();
         }
+        
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {

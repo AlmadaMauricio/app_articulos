@@ -212,7 +212,7 @@ namespace AppCatalogo
 
         private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         #endregion
